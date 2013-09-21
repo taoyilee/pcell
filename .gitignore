@@ -1,0 +1,7 @@
+*
+!.gitignore
+!*.md
+!*.sh
+!*.il
+!*.cdf
+!*/
