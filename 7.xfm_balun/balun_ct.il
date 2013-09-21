@@ -1,0 +1,52 @@
+/* 	Intellectual Properties of RFVLSI LAB, NCTU, TAIWAN. 
+	Intended for Internal Use Only, All Rights Reserved, 2012 
+	*DO NOT DISCLOSE*
+	Author : Tao-Yi Lee */
+	
+strCellName="balun_ct"
+pcDefinePCell(
+list(ddGetObj(strLibName),strCellName, "layout"),
+(
+	(OD     "float" 190.0)
+    (WI     "float" 4.0)
+    (WO     "float" 2.0)
+    (LOP    "float" 10.0)
+    (ROP    "float" 7.0)
+    (LEAD   "float" 20.0)
+    (LEADDYI    "float" 0.0)
+    (LEADDYO    "float" 0.0)
+    (S  "float" 2.05)
+    (DIVO "float" 3.35)
+    (DIVI "float" 3.3)
+    (dummy "boolean" t)
+    (DUMMYL "string" "RFVLSI")
+    (balun_str "string" "balun_ct")
+    (NT_N "boolean" t)
+)
+let((),
+	dbCreateParamInst(pcCellView 
+		dbOpenCellViewByType(pcCellView~>lib "balun" "layout" )
+		nil 0:0 "R0" 1  
+		list(
+			list("OD" 	"float" 	OD) 
+			list("WI"	"float" 	WI)	
+			list("WO"	"float" 	WO)	
+			list("S"	"float"		S) 
+			list("DIVI"	"float"	DIVI) 
+			list("DIVO"	"float"	DIVO) 
+			list("LOP"	"float" LOP) 
+			list("ROP"	"float" ROP) 
+      		list("LEAD"   "float" LEAD) 
+      		list("LEADDYI"   "float" LEADDYI) 
+        	list("LEADDYO"   "float" LEADDYO) 
+        	list("dummy"   "boolean" dummy)
+        	list("DUMMYL"   "string" DUMMYL)
+			list("balun_str" "string" balun_str)
+			list("NT_N" 	"boolean"	NT_N)
+		))
+    dbCreateLabel(pcCellView, list(DUMMYL, "dummy1"), OD-WI/2-WO-S:0, "CT", "centerCenter", "R0", "roman", WO)
+    dbCreateRect(pcCellView, list(DUMMYL, "dummy1"), list(OD-WI-WO-S:-WI/2 OD-WO-S:WI/2))
+
+)/*end of let*/
+)/*end of pcDefinePCell*/
+
